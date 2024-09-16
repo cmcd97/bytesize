@@ -12,3 +12,6 @@ tmp/
 
 # Compiled Go files
 *_templ.go
+
+# Pocketbase data
+pb_data/
