@@ -15,8 +15,8 @@ func InitAppRoutes(e *core.ServeEvent, pb *pocketbase.PocketBase) {
 		return c.Redirect(303, "profile")
 	})
 	appGroup.GET("/profile", handlers.ProfileGet)
-	// appGroup.GET("/todos", TodosGet(e))
-	// appGroup.GET("/todos/add", TodoAddGet)
-	// appGroup.POST("/todos/add", TodoAddPost(e))
-	// appGroup.POST("/todos/:id/delete", TodoDelete(e))
+
+	e.Router.GET("/", func(c echo.Context) error {
+		return c.Redirect(303, "/app")
+	})
 }
