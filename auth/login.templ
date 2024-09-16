@@ -9,18 +9,32 @@ templ Login(form LoginFormValue, err error) {
 }
 
 templ LoginForm(form LoginFormValue, err error) {
-	<form method="POST" action="/auth/login" hx-boost="true">
-		<div>
-			<label>Username</label>
-			<input type="text" name="username" id="username" value={ form.username }/>
+	<div class="card bg-neutral w-96 shadow-xl">
+		<div class="card-body">
+			<h2 class="card-title">Login</h2>
+			<p>Create user on Pocketbase first</p>
+			<input
+				type="text"
+				name="username"
+				id="username"
+				value={ form.username }
+				placeholder="Username"
+				class="input input-sm input-bordered input-primary w-full max-w-xs"
+			/>
+			<input
+				type="text"
+				name="username"
+				id="username"
+				value={ form.password }
+				placeholder="Password"
+				class="input input-sm input-bordered input-primary w-full max-w-xs"
+			/>
+			if err != nil {
+				<p>{ err.Error() }</p>
+			}
+			<div class="card-actions justify-end">
+				<button class="btn btn-primary" hx-post="/" type="submit">Login</button>
+			</div>
 		</div>
-		<div>
-			<label>Password</label>
-			<input type="password" name="password" id="password"/>
-		</div>
-		if err != nil {
-			<p>{ err.Error() }</p>
-		}
-		<button type="submit">Login</button>
-	</form>
+	</div>
 }

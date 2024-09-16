@@ -1,0 +1,5 @@
+<form method=\"POST\" action=\"/auth/register\" hx-boost=\"true\"><div><label>Username</label> <input type=\"text\" name=\"username\" id=\"username\" value=\"
+\"></div><div><label>Password</label> <input type=\"password\" name=\"password\" id=\"password\"></div><div><label>Repeat password</label> <input type=\"password\" name=\"passwordRepeat\" id=\"passwordRepeat\"></div>
+<p>
+</p>
+<button type=\"submit\">Register</button></form>

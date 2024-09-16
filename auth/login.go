@@ -35,7 +35,7 @@ func getLoginFormValue(c echo.Context) LoginFormValue {
 func RegisterLoginRoutes(e *core.ServeEvent, group echo.Group) {
 	group.GET("/login", func(c echo.Context) error {
 		if c.Get(apis.ContextAuthRecordKey) != nil {
-			return c.Redirect(302, "/app/profile")
+			return c.Redirect(302, "/app/index")
 		}
 
 		return lib.Render(c, 200, Login(LoginFormValue{}, nil))
@@ -58,7 +58,7 @@ func RegisterLoginRoutes(e *core.ServeEvent, group echo.Group) {
 			return lib.Render(c, 200, component)
 		}
 
-		return lib.HtmxRedirect(c, "/app/profile")
+		return lib.HtmxRedirect(c, "/app/index")
 	})
 
 	group.POST("/logout", func(c echo.Context) error {

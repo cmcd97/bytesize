@@ -1,0 +1,3 @@
+<h1>
+</h1><p>Id: 
+</p><form method=\"post\" action=\"/auth/logout\" hx-boost=\"true\"><button type=\"submit\">Logout</button></form><a href=\"todos\">Todos</a>
