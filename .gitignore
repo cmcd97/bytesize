@@ -9,3 +9,6 @@ bin
 
 # Temporary files
 tmp/
+
+# Compiled Go files
+*_templ.go
