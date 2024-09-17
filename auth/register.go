@@ -34,7 +34,7 @@ func getRegisterFormValue(c echo.Context) RegisterFormValue {
 func RegisterRegisterRoutes(e *core.ServeEvent, group echo.Group) {
 	group.GET("/register", func(c echo.Context) error {
 		if c.Get(apis.ContextAuthRecordKey) != nil {
-			return c.Redirect(302, "/app/index")
+			return c.Redirect(302, "/app/profile")
 		}
 
 		return lib.Render(c, 200, Register(RegisterFormValue{}, nil))
@@ -57,6 +57,6 @@ func RegisterRegisterRoutes(e *core.ServeEvent, group echo.Group) {
 			return lib.Render(c, 200, component)
 		}
 
-		return lib.HtmxRedirect(c, "/app/index")
+		return lib.HtmxRedirect(c, "/app/profile")
 	})
 }
