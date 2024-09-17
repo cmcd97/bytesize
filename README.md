@@ -27,8 +27,19 @@ To get started with Bytesize, follow these steps:
    ```
 
 3. **Run the Application**:
+
+   in separate terminals:
+
    ```sh
    air
+   ```
+
+   ```sh
+   make templ
+   ```
+
+   ```sh
+   make css
    ```
 
 ## Documentation
