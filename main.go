@@ -14,7 +14,7 @@ import (
 
 func main() {
 	if err := godotenv.Load(); err != nil {
-		println("Error loading .env file. Please create one or check the spelling og the file name")
+		println("Error loading .env file. Please create one or check the spelling of the file name")
 		log.Fatal(err)
 	}
 
