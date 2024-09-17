@@ -10,39 +10,56 @@ templ Login(form LoginFormValue, err error) {
 
 templ LoginForm(form LoginFormValue, err error) {
 	<div id="login-form" class="flex flex-col justify-center items-center">
-		<h1 class="text-2xl font-bold mb-4">
-			Welcome to Your Bytesize Starter
-		</h1>
-		<p class="mb-10 w-96">
-			Please visit the <a href="http://127.0.0.1:8090/_/" class="text-blue-500 underline">Pocketbase Admin UI</a> to create a user before attempting to login, alternatively you can vist the registration page by clicking the register button on the login form. First, create an admin account that you will use to login to Pocketbase in the future. Once you have logged in, navigate to the users collection and manually create a record with a <strong>Username</strong> and password. Use these credentials in the login form below.
-		</p>
-		<div class="card bg-neutral w-96 shadow-xl">
-			<div class="card-body">
-				<h2 class="card-title">Login</h2>
-				<input
-					type="text"
-					name="username"
-					id="username"
-					value={ form.username }
-					placeholder="Username"
-					class="input input-sm input-bordered input-primary w-full max-w-xs"
-				/>
-				<input
-					type="text"
-					name="username"
-					id="username"
-					value={ form.password }
-					placeholder="Password"
-					class="input input-sm input-bordered input-primary w-full max-w-xs"
-				/>
-				if err != nil {
-					<p>{ err.Error() }</p>
-				}
-				<div class="card-actions justify-end">
-					<button class="btn btn-ghost" hx-get="/auth/register" type="submit" hx-target="#login-form" hx-swap="outerHTML">Register</button>
-					<button class="btn btn-primary" hx-post="/" type="submit">Login</button>
+		<form method="POST" action="/auth/login" hx-boost="true">
+			<h1 class="text-2xl font-bold mb-4">
+				Welcome to Your Bytesize Starter
+			</h1>
+			<p class="mb-10 w-96">
+				Please visit the <a href="http://127.0.0.1:8090/_/" class="text-blue-500 underline">Pocketbase Admin UI</a> to create a user before attempting to login, alternatively you can vist the registration page by clicking the register button on the login form. First, create an admin account that you will use to login to Pocketbase in the future. Once you have logged in, navigate to the users collection and manually create a record with a <strong>Username</strong> and password. Use these credentials in the login form below.
+			</p>
+			<div class="card bg-neutral w-96 shadow-xl">
+				<div class="card-body">
+					<h2 class="card-title">Login</h2>
+					<input
+						type="text"
+						name="username"
+						id="username"
+						value={ form.username }
+						placeholder="Username"
+						class="input input-sm input-bordered input-primary w-full max-w-xs"
+					/>
+					<input
+						type="text"
+						name="password"
+						id="password"
+						value={ form.password }
+						placeholder="Password"
+						class="input input-sm input-bordered input-primary w-full max-w-xs"
+					/>
+					if err != nil {
+						<div role="alert" class="alert alert-error">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								class="h-6 w-6 shrink-0 stroke-current"
+								fill="none"
+								viewBox="0 0 24 24"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+								></path>
+							</svg>
+							<span>{ err.Error() }</span>
+						</div>
+					}
+					<div class="card-actions justify-end">
+						<button class="btn btn-ghost" hx-get="/auth/register" hx-target="#login-form" hx-swap="outerHTML">Register</button>
+						<button class="btn btn-primary" type="submit">Login</button>
+					</div>
 				</div>
 			</div>
-		</div>
+		</form>
 	</div>
 }

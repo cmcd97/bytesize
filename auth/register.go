@@ -16,10 +16,10 @@ type RegisterFormValue struct {
 	passwordRepeat string
 }
 
-func (lfv RegisterFormValue) Validate() error {
-	return validation.ValidateStruct(&lfv,
-		validation.Field(&lfv.username, validation.Required, validation.Length(3, 50)),
-		validation.Field(&lfv.password, validation.Required),
+func (rfv RegisterFormValue) Validate() error {
+	return validation.ValidateStruct(&rfv,
+		validation.Field(&rfv.username, validation.Required, validation.Length(3, 50)),
+		validation.Field(&rfv.password, validation.Required),
 	)
 }
 

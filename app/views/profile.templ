@@ -7,11 +7,28 @@ import (
 
 templ Profile(user *models.Record) {
 	@lib.BaseLayout() {
-		<h1>{ user.Username() }</h1>
-		<p>Id: { user.GetId() }</p>
-		<form method="post" action="/auth/logout" hx-boost="true">
-			<button type="submit">Logout</button>
-		</form>
-		<a href="todos">Todos</a>
+		<div class="navbar bg-base-100 text-primary-content">
+			<div class="navbar-start">
+				<button class="btn btn-ghost btn-lg text-2xl text-primary">Bytesize</button>
+			</div>
+			<div class="navbar-end">
+				<form method="post" action="/auth/logout" hx-boost="true" class="flex justify-end">
+					<button class="btn btn-primary" type="submit">Logout</button>
+				</form>
+			</div>
+		</div>
+		<div id="profile-page" class="flex flex-col justify-center items-center mt-10">
+			<div id="header-message" class="mb-4 ">
+				<h1 class="text-2xl font-bold mb-4 flex justify-center">
+					Congratulations { user.Username() }!
+				</h1>
+				<p>If you are seeing this screen it means you have succesfully set up your <span class="font-bold text-primary">Bytesize</span> template</p>
+			</div>
+			<div class="mockup-code w-96">
+				<pre data-prefix="$"><code>git clone bytesize</code></pre>
+				<pre data-prefix=">" class="text-warning"><code>installing...</code></pre>
+				<pre data-prefix=">" class="text-success"><code>Done!</code></pre>
+			</div>
+		</div>
 	}
 }

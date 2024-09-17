@@ -10,43 +10,60 @@ templ Register(form RegisterFormValue, err error) {
 
 templ RegisterForm(form RegisterFormValue, err error) {
 	<div id="register-form" class="flex flex-col justify-center items-center mt-10">
-		<div class="card bg-neutral w-96 shadow-xl">
-			<div class="card-body">
-				<h2 class="card-title">Register</h2>
-				<input
-					type="text"
-					name="username"
-					id="username"
-					value={ form.username }
-					placeholder="Username"
-					class="input input-sm input-bordered input-primary w-full max-w-xs"
-				/>
-				<input
-					type="text"
-					name="password"
-					id="password"
-					type="password"
-					value={ form.password }
-					placeholder="Password"
-					class="input input-sm input-bordered input-primary w-full max-w-xs"
-				/>
-				<input
-					type="text"
-					name="passwordRepeat"
-					id="passwordRepeat"
-					type="password"
-					value={ form.password }
-					placeholder="Confirm Password"
-					class="input input-sm input-bordered input-primary w-full max-w-xs"
-				/>
-				if err != nil {
-					<p>{ err.Error() }</p>
-				}
-				<div class="card-actions justify-end">
-					<button class="btn btn-ghost" hx-get="/auth/login" type="submit" hx-target="#register-form" hx-swap="outerHTML">Login</button>
-					<button class="btn btn-primary" hx-post="/" type="submit">Register</button>
+		<form method="POST" action="/auth/register" hx-boost="true">
+			<div class="card bg-neutral w-96 shadow-xl">
+				<div class="card-body">
+					<h2 class="card-title">Register</h2>
+					<input
+						type="text"
+						name="username"
+						id="username"
+						value={ form.username }
+						placeholder="Username"
+						class="input input-sm input-bordered input-primary w-full max-w-xs"
+					/>
+					<input
+						type="text"
+						name="password"
+						id="password"
+						type="password"
+						value={ form.password }
+						placeholder="Password"
+						class="input input-sm input-bordered input-primary w-full max-w-xs"
+					/>
+					<input
+						type="text"
+						name="passwordRepeat"
+						id="passwordRepeat"
+						type="password"
+						value={ form.password }
+						placeholder="Confirm Password"
+						class="input input-sm input-bordered input-primary w-full max-w-xs"
+					/>
+					if err != nil {
+						<div role="alert" class="alert alert-error">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								class="h-6 w-6 shrink-0 stroke-current"
+								fill="none"
+								viewBox="0 0 24 24"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+								></path>
+							</svg>
+							<span>{ err.Error() }</span>
+						</div>
+					}
+					<div class="card-actions justify-end">
+						<button class="btn btn-ghost" hx-get="/auth/login" hx-target="#register-form" hx-swap="outerHTML">Login</button>
+						<button class="btn btn-primary" type="submit">Register</button>
+					</div>
 				</div>
 			</div>
-		</div>
+		</form>
 	</div>
 }
