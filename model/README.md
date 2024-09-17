@@ -1,7 +1,5 @@
 # Model Package
 
-# Model Package
-
 This package provides CRUD operations for models in a PocketBase application.
 
 ## Overview
