@@ -1,4 +1,6 @@
-<img src="https://github.com/cmcd97/bytesize/blob/main/public/assets/bytesize_banner.svg?sanitize=true" width="100%" alt="Bytesize Banner">
+<p align="center">
+  <img src="https://raw.githubusercontent.com/cmcd97/bytesize/blob/main/public/assets/bytesize_banner.svg" alt="dbt logo" width="750"/>
+</p>
 
 Bytesize is a web application template designed to help you kickstart your web development projects with ease. The core philosophy of Bytesize is simplicity and lightweight performance.
 
