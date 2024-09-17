@@ -1,4 +1,4 @@
-<img src="https://github.com/cmcd97/bytesize/blob/main/public/assets/svg/bytesize-banner.svg?sanitize=true" width="100%" alt="bytesize Banner">
+<img src="https://github.com/cmcd97/bytesize/blob/main/public/assets/bytesize_banner.svg?sanitize=true" width="100%" alt="bytesize Banner">
 godotenv
 templ
 air
