@@ -5,7 +5,7 @@ ifneq (,$(wildcard ./.env))
 endif
 
 run: build
-	@./bin/app
+	@./bin/app serve
 
 build:
 	@go build -o bin/app .
