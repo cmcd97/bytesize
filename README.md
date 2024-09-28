@@ -10,6 +10,57 @@ Bytesize is a web application template designed to help you kickstart your web d
 - **Modern Frontend Stack**: Utilizes Templ, HTMX, Tailwind CSS, and DaisyUI for a seamless and responsive user interface.
 - **Hot Reloading**: Air is preconfigured to enable hot reloading in the browser, enhancing your development workflow.
 
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+1. **Go**: [Download Go](https://go.dev/dl/)
+2. **Node and NPM**: [Download Node.js and NPM](https://nodejs.org/en)
+3. **Air**: Install Air with the following command:
+   ```sh
+   curl -sSfL https://raw.githubusercontent.com/air-verse/air/master/install.sh | sh -s -- -b $(go env GOPATH)/bin
+   ```
+   Then, alias Air (if Air is not found):
+   ```sh
+   alias air='$(go env GOPATH)/bin/air'
+   ```
+4. **Templ**: Install Templ with the following command:
+
+   Note: You may need to run the `templ generate --watch --proxy="http://localhost:3000" --open-browser=true` command manually the first time before using the makefile command.
+
+   ```sh
+   go install github.com/a-h/templ/cmd/templ@latest
+   ```
+
+   Add the Go path to your shell configuration file (`~/.bashrc` or `~/.zshrc`):
+
+   ```sh
+   export PATH=$PATH:$(go env GOPATH)/bin
+   ```
+
+   Source the file:
+
+   ```sh
+   source ~/.bashrc
+   # or
+   source ~/.zshrc
+   ```
+
+   Check the Templ version:
+
+   ```sh
+   templ --version
+   ```
+
+5. **TailwindCSS**: Install TailwindCSS with NPM:
+   ```sh
+   npm install -D tailwindcss
+   ```
+   Initialize TailwindCSS:
+   ```sh
+   npx tailwindcss init
+   ```
+
 ## Getting Started
 
 To get started with Bytesize, follow these steps:
