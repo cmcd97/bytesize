@@ -79,6 +79,8 @@ To get started with Bytesize, follow these steps:
    npm install
    ```
 
+   you make also need to run `templ generate` to generate the go files otherwise you will get an error stating that your local packages are not found
+
 3. **Run the Application in Development Mode**:
 
    in separate terminals:
